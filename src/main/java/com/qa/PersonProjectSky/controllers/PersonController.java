@@ -1,7 +1,9 @@
 package com.qa.PersonProjectSky.controllers;
 
 import com.qa.PersonProjectSky.entities.Person;
+import com.qa.PersonProjectSky.entities.PersonDTO;
 import com.qa.PersonProjectSky.services.PersonService;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,17 +27,22 @@ public class PersonController {
     }
 
     @PostMapping("/create")
-    public Person addPerson(@RequestBody @Valid Person person) {
+    public PersonDTO addPerson(@RequestBody @Valid Person person) {
         return this.service.addPerson(person);
     }
 
     @GetMapping("/getAll")
-    public List<Person> getAll() {
+    public List<PersonDTO> getAll() {
         return this.service.getAll();
     }
 
+    @GetMapping("/getById/{id}")
+    public PersonDTO getById(@PathVariable Long id) {
+        return this.service.getById(id);
+    }
+
     @PutMapping("/update/{id}")
-    public Person updatePerson(@PathVariable Long id, @RequestBody Person person) {
+    public PersonDTO updatePerson(@PathVariable Long id, @RequestBody Person person) {
         return this.service.updatePerson(id, person);
     }
 

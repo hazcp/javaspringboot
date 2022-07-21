@@ -37,6 +37,10 @@ public class Person {
 
     /* GETTERS */
 
+    public Long getId() {
+        return id;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -50,6 +54,10 @@ public class Person {
     }
 
     /* SETTERS */
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
